@@ -5,195 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>anybot 埋め込みサンプルサイト</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: #fafafa;
+            line-height: 1.7; color: #333; background: #fafafa;
         }
-
-        /* ヘッダー */
         header {
             background: linear-gradient(135deg, #06C755 0%, #00B900 100%);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            color: white; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        /* ヒーローセクション */
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.7; }
         .hero {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 6rem 2rem;
-            text-align: center;
+            padding: 6rem 2rem; text-align: center;
         }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1.5rem; color: #2c3e50; }
+        .hero p { font-size: 1.2rem; color: #555; max-width: 700px; margin: 0 auto 2rem; }
         .cta-button {
-            display: inline-block;
-            background: #06C755;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block; background: #06C755; color: white;
+            padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
+            font-weight: bold; transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(6, 199, 85, 0.4);
-        }
-
-        /* セクション共通 */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        /* 機能紹介 */
-        .features {
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(6, 199, 85, 0.4); }
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 3rem; color: #2c3e50; }
+        .features { background: white; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
         .feature-card {
-            background: #fafafa;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
+            background: #fafafa; padding: 2rem; border-radius: 10px; text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        /* お問い合わせ案内 */
-        .contact-info {
-            background: #f5f7fa;
-            text-align: center;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #555;
-        }
-
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .feature-card h3 { color: #2c3e50; margin-bottom: 1rem; }
+        .contact-info { background: #f5f7fa; text-align: center; }
+        .contact-info p { font-size: 1.1rem; margin-bottom: 1rem; color: #555; }
         .highlight-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 2rem auto;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid #06C755;
+            background: white; padding: 2rem; border-radius: 10px;
+            max-width: 600px; margin: 2rem auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-left: 4px solid #06C755;
         }
-
-        /* フッター */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
+        footer { background: #2c3e50; color: white; padding: 2rem; text-align: center; }
+        footer p { opacity: 0.8; font-size: 0.9rem; }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
+            .hero h1 { font-size: 2rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <!-- ヘッダー -->
     <header>
         <div class="nav-container">
             <div class="logo">Sample Site</div>
@@ -207,14 +73,12 @@
         </div>
     </header>
 
-    <!-- ヒーローセクション -->
     <section class="hero" id="home">
         <h1>サンプルサイトへようこそ</h1>
         <p>こちらはanybotチャットウィジェットを埋め込んだサンプルサイトです。<br>画面右下のチャットアイコンよりお気軽にお問い合わせください。</p>
         <a href="#contact" class="cta-button">詳しく見る</a>
     </section>
 
-    <!-- 機能紹介 -->
     <section class="features" id="features">
         <div class="container">
             <h2>サービスの特長</h2>
@@ -238,7 +102,6 @@
         </div>
     </section>
 
-    <!-- お問い合わせ案内 -->
     <section class="contact-info" id="contact">
         <div class="container">
             <h2>お問い合わせ</h2>
@@ -249,12 +112,11 @@
         </div>
     </section>
 
-    <!-- フッター -->
     <footer>
         <p>&copy; 2026 Sample Site. All rights reserved.</p>
     </footer>
 
-    <!-- anybot チャットウィジェット埋め込み -->
-    <script id="anybot" src="https://anybot.me/js/anybot.sdk.js?style=embed" bot_id="14776" locale="ja_JP" label="ご質問がある場合はこちらへ"  start_act="462066" keep_label="0" new_page="0"></script>
+    <!-- anybot チャットウィジェット埋め込み(管理画面の正規版) -->
+    <script id="anybot" src="https://anybot.me/js/anybot.sdk.js?style=embed" bot_id="14776" locale="ja_JP" label="ご質問がある場合はこちらへ" start_act="462066" keep_label="1" new_page="0"></script>
 </body>
 </html>
